@@ -12,7 +12,7 @@ source:
   sha256: 15ff770bb97565b085f0b8b91df60b529f427c134d1d3fe7f700aca9d3209884
 
 build:
-  number: 0
+  number: 1 
   skip: true  # [not linux]
   run_exports:
      - {{ pin_subpackage("mfem", max_pin="x.x") }}
