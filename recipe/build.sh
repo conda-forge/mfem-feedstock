@@ -4,6 +4,11 @@ set -x
 
 export OPAL_PREFIX=$PREFIX
 
+which mpicxx
+mpicxx
+which mpicc
+mpicc
+
 make config CXX=$CXX MPICXX=$PREFIX/bin/mpicxx PREFIX=$PREFIX MFEM_SHARED=YES MFEM_STATIC=NO MFEM_USE_MPI=YES MFEM_USE_METIS_5=YES CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" LIBS="$LIBS" HYPRE_OPT="-I$PREFIX/include"
 
 cat config/config.mk
