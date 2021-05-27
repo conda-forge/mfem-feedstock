@@ -8,10 +8,10 @@ fi
 
 which mpicc
 head $(which mpicc)
-mpicc --show
+mpicc --help
 which mpicxx
 head $(which mpicxx)
-mpicxx --show
+mpicxx --help
 
 
 make config CXX=$CXX MPICXX=$PREFIX/bin/mpicxx PREFIX=$PREFIX MFEM_SHARED=YES MFEM_STATIC=NO MFEM_USE_MPI=YES MFEM_USE_METIS_5=YES CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" LIBS="$LIBS" HYPRE_OPT="-I$PREFIX/include"
