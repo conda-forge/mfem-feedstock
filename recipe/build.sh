@@ -6,6 +6,10 @@ make config CXX=$CXX PREFIX=$PREFIX MFEM_SHARED=YES MFEM_STATIC=NO MFEM_USE_MPI=
 
 cat config/config.mk
 
+if [[ $(uname) == Darwin ]]; then
+  sed -i.bak s,MAP_ANONYMOUS,MAP_ANON, general/mem_manager.cpp
+fi
+
 make lib -j${CPU_COUNT}
 make install
 
