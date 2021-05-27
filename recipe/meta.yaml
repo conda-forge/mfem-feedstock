@@ -1,6 +1,6 @@
 {% set name = "mfem" %}
 {% set version = "4.2" %}
-{% set build = "2" %}
+{% set build = "3" %}
 
 {% set mpi = mpi or 'mpich' %}
 
@@ -14,7 +14,7 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [not linux]
+  skip: true  # [win]
   {% set mpi_prefix = "mpi_" + mpi %}
   string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}"
   run_exports:
