@@ -12,8 +12,10 @@ source:
   sha256: 15ff770bb97565b085f0b8b91df60b529f427c134d1d3fe7f700aca9d3209884
 
 build:
-  number: 1 
+  number: 2
   skip: true  # [not linux]
+  {% set mpi_prefix = "mpi_" + mpi %}
+  string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}"
   run_exports:
      - {{ pin_subpackage("mfem", max_pin="x.x") }}
 
@@ -22,7 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - make
-    - {{ mpi }}  # [build_platform != target_platform]
+    - {{ mpi }}  # [build_platform != target_platform and mpi == "openmpi"]
   host:
     - {{ mpi }}
     - hypre
