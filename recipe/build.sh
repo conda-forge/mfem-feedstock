@@ -2,12 +2,17 @@
 
 set -x
 
-export OPAL_PREFIX=$PREFIX
+if [[ $mpi == "openmpi" ]]; then
+  export OPAL_PREFIX=$PREFIX
+fi
 
-which mpicxx
-mpicxx
 which mpicc
+head $(which mpicc)
 mpicc
+which mpicxx
+head $(which mpicxx)
+mpicxx
+
 
 make config CXX=$CXX MPICXX=$PREFIX/bin/mpicxx PREFIX=$PREFIX MFEM_SHARED=YES MFEM_STATIC=NO MFEM_USE_MPI=YES MFEM_USE_METIS_5=YES CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" LIBS="$LIBS" HYPRE_OPT="-I$PREFIX/include"
 
