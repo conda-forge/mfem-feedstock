@@ -10,6 +10,9 @@ if [[ $(uname) == Darwin ]]; then
   sed -i.bak s,MAP_ANONYMOUS,MAP_ANON, general/mem_manager.cpp
 fi
 
+# Fix for hypre 2.21.0 / mfem 4.2
+sed -i.bak s,hypre_ParcsrAdd,hypre_ParCSRMatrixAdd, linalg/hypre.cpp
+
 make lib -j${CPU_COUNT}
 make install
 
