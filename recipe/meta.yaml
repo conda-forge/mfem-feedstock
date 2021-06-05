@@ -1,6 +1,6 @@
 {% set name = "mfem" %}
 {% set version = "4.2" %}
-{% set build = "4" %}
+{% set build = "5" %}
 
 {% set mpi = mpi or 'mpich' %}
 
