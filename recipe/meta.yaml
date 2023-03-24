@@ -1,5 +1,5 @@
 {% set name = "mfem" %}
-{% set version = "4.5" %}
+{% set version = "4.5.2" %}
 {% set build = 0 %}
 
 {% set mpi = mpi or 'mpich' %}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/mfem/mfem/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: ee0e640286ea370aaf5c973e8f08eb648fa650e3e30f296e68bfc10c3dcfa9b8
+  sha256: 9431d72a2834078f25c58430767bf2fd62bf43a0feb003189a86847c68b8af4a
 
 build:
   number: {{ build }}
